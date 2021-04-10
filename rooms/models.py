@@ -49,7 +49,7 @@ class Photo(core_models.TimeStampledModel):
 
     caption = models.CharField(max_length=80)
     file = models.ImageField()
-    room = models.ForeignKey("Room", on_delete=models.CASCADE)
+    room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
 
 
 class Room(core_models.TimeStampledModel):

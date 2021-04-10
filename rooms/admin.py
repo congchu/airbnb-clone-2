@@ -75,6 +75,7 @@ class RoomAdmin(admin.ModelAdmin):
         "check_out",
         "instant_book",
         "count_amenities",
+        "count_photos",
     )
 
     ordering = ("price", "bedrooms")
@@ -98,6 +99,9 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_amenities(self, obj):
         return obj.amenities.count()
+
+    def count_photos(self, obj):
+        return obj.photos.count()
 
     count_amenities.short_description = "amenities"
 
