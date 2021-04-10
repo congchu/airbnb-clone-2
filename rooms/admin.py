@@ -76,6 +76,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
 
     ordering = ("price", "bedrooms")
@@ -119,3 +120,5 @@ class ItemAdmin(admin.ModelAdmin):
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
     """ Photo Admin Definition"""
+
+    pass
