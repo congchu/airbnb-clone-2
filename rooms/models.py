@@ -85,6 +85,9 @@ class Room(core_models.TimeStampledModel):
     def total_rating(self):
         all_reviews = self.reviews.all()
         sum_ratings = 0
-        for review in all_reviews:
-            sum_ratings += review.rating_average()
-        return sum_ratings / len(all_reviews)
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                sum_ratings += review.rating_average()
+            return sum_ratings / len(all_reviews)
+        else:
+            return 0
