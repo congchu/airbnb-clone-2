@@ -6,10 +6,16 @@ Home
 {% block content %}
 
 {% for room in rooms %}
-
-
 <h1>{{room.name}} / {{room.price}}</h1>
-
 {% endfor%}
+
+Page {{page}}
+PageCount {{page_count}}
+
+{% for page in page_range %}
+
+<a href="?page={{page}}">{{page}}</a>
+
+{% endfor %}
 
 {% endblock %}
