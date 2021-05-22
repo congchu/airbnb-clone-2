@@ -1,7 +1,7 @@
 from django.utils import timezone
 from math import ceil
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from . import models
 
 class HomeView(ListView):
@@ -18,3 +18,14 @@ class HomeView(ListView):
         now = timezone.now()
         context["now"] = now
         return context
+
+class RoomDetail(DetailView):
+    """Room Detail View Definition"""
+    model = models.Room
+
+
+
+def search(request):
+    city = request.GET.get("city")
+    print(str.capitalize(city))
+    return render(request, "rooms/search.html",{"city":city})
